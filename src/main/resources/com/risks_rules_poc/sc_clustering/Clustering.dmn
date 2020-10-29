@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_2CE870D0-EAC6-40A0-863F-465CF0E7EC22" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_16328615-A9BC-481D-8A61-6366219BBEDC" name="Clustering" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="screeningclustering_decisions">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_7A8949E9-A819-4BE4-87AB-8A651A589657" name="Clustering" isCollection="false">
+    <dmn:itemComponent id="_931AEE7E-E0EA-4569-8DCE-885B87384800" name="codCircuito" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_F7FFEF46-0D1A-4643-B945-F9E397612FF6" name="codDictamen" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_B60B0946-EBAB-4570-883F-A0BF6AE8CAFA" name="descripcion" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_19CE9E25-0D4E-470F-86F6-E135B54DE7EF" name="Set Clustering">
+    <dmn:extensionElements/>
+    <dmn:variable id="_51B5F868-1EEE-42DE-80C5-AA670C0F404E" name="Set Clustering" typeRef="string"/>
+  </dmn:inputData>
+  <dmn:decision id="_86962DAE-74FE-41AA-88D2-5EBA4C278AF3" name="Clustering">
+    <dmn:extensionElements/>
+    <dmn:variable id="_A5D5090C-9B3B-4C42-96C9-D77338E038B1" name="Clustering" typeRef="Clustering"/>
+    <dmn:informationRequirement id="_CC1349A0-3E3F-4C4B-9E06-314F164B8875">
+      <dmn:requiredInput href="#_19CE9E25-0D4E-470F-86F6-E135B54DE7EF"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_51A267FC-BE8A-4A95-AAB0-71CFFC5EEE37" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_E2D38058-0038-4E1D-AA0D-5581F3F8DE7C">
+        <dmn:inputExpression id="_D9DD6B43-E3E6-4B73-B79B-68E48632F53D" typeRef="string">
+          <dmn:text>Set Clustering</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_83477802-FDEF-4ABE-9C89-BF6DED271AB9" name="codCircuito" typeRef="number"/>
+      <dmn:output id="_4F928DCA-5D2B-4DFA-8D04-D497F50667BC" name="codDictamen" typeRef="string"/>
+      <dmn:output id="_DECA8F84-6EFB-4127-88DC-9C5E9E06F267" name="descripcion" typeRef="string"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_5F85AAC9-7248-4F5D-A03E-B5A8765606CE">
+        <dmn:inputEntry id="_25D6592A-15D8-4DE4-896C-00C7E25C6C16">
+          <dmn:text>"Aprobado"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_AED8284B-23B7-4CBA-ABB2-B068B74E5AEC">
+          <dmn:text>1</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_5D058EB0-4BAD-4D19-924B-903AAF9C02D9">
+          <dmn:text>"PD00"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_6EA19B53-F2D1-41A8-941C-44E3E9B4CD7C">
+          <dmn:text>"Solicitud aprobada"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_52514A9F-B2E5-465D-82B0-C17DB845E6EA">
+        <dmn:inputEntry id="_73B7CCD2-1BBD-4CDA-8490-2B1F74CA3CCA">
+          <dmn:text>"Procesable"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_8E923AAB-BBC6-46C9-A198-58D9EAF3EA9F">
+          <dmn:text>2</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_53A11DD8-0952-4BDD-B3B6-0B76F4D018BC">
+          <dmn:text>"PD00"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_30E4646F-D6AA-4A30-819E-CEA9F4235363">
+          <dmn:text>"Solicitud procesable"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_858862A2-EEFB-49B9-8C9E-7F086E6C037C">
+        <dmn:inputEntry id="_505ABE65-F85E-46FB-B971-487DE4B463B2">
+          <dmn:text>"Denegado"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_CB25EBE5-6C4D-4E3E-B7CC-2D21B7BC25A3">
+          <dmn:text>3</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_9FCD1576-5DEA-4D18-93AB-B7D1546AD954">
+          <dmn:text>"PD01"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_AA359526-3213-43F6-951E-A4306B31C3C3">
+          <dmn:text>"Solicitud Denegada"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text></dmn:text>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_51A267FC-BE8A-4A95-AAB0-71CFFC5EEE37">
+            <kie:width>50.0</kie:width>
+            <kie:width>171.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>100.0</kie:width>
+            <kie:width>218.0</kie:width>
+            <kie:width>159.0</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-_19CE9E25-0D4E-470F-86F6-E135B54DE7EF" dmnElementRef="_19CE9E25-0D4E-470F-86F6-E135B54DE7EF" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="479" y="373" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_86962DAE-74FE-41AA-88D2-5EBA4C278AF3" dmnElementRef="_86962DAE-74FE-41AA-88D2-5EBA4C278AF3" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="452" y="185" width="156" height="75"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_CC1349A0-3E3F-4C4B-9E06-314F164B8875" dmnElementRef="_CC1349A0-3E3F-4C4B-9E06-314F164B8875">
+        <di:waypoint x="579" y="398"/>
+        <di:waypoint x="452" y="222.5"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
